@@ -5,19 +5,33 @@ import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 import logo from '../../assets/logo/logo.jpg'
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
+
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
+        <li className='font-semibold'><Link to='/services'>My Services</Link></li>
+        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/addservice'>Add Service</Link></li>
+
+
         {
             user?.email ?
                 <>
                     <li className='font-semibold'><Link to='/review'>My Review </Link></li>
+
                 </>
                 :
                 <li className='font-semibold'><Link to='/login'>Login</Link></li>
         }
-        <li className='font-semibold'><Link to='/services'>My Services</Link></li>
-        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+
+
+
     </>
 
     return (
@@ -31,7 +45,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='w-1/2' src={logo} alt="" /></Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><h1 className='text-6xl'>Travel Tours</h1></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -43,7 +57,7 @@ const Header = () => {
 
                     user?.email ?
                         <>
-                            <button className="btn btn-outline btn-warning">Log Out</button>
+                            <button onClick={handleLogOut} className="btn btn-outline btn-warning">Log Out</button>
                         </>
                         :
                         <button className="btn btn-outline btn-warning">     <li ><Link to='/login'>Login</Link></li>
@@ -53,7 +67,7 @@ const Header = () => {
 
 
             </div>
-        </div>
+        </div >
     );
 };
 

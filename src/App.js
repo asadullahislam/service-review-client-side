@@ -8,7 +8,7 @@ function App() {
 
 
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto" data-theme="valentine">
       <RouterProvider router={router}>
 
       </RouterProvider>

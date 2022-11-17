@@ -1,0 +1,12 @@
+.react-icon-div {
+    height: 120px;
+    width: 120px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.react-icon-div:hover {
+    background-color: rgb(30, 209, 30);
+    color: white;
+}

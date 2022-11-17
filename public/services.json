@@ -1,5 +1,6 @@
 [
     {
+        "service_id": "04",
         "title": "Bandarban Tourist Spots",
         "img": "https://i.ibb.co/rmwgm7M/bandarban.jpg",
         "price": "20.00",
@@ -12,6 +13,7 @@
         ]
     },
     {
+        "service_id": "05",
         "title": "Sajek Valley| Rangamati",
         "img": "https://i.ibb.co/86VjhSM/sajek.jpg",
         "price": "20.00",
@@ -24,6 +26,7 @@
         ]
     },
     {
+        "service_id": "06",
         "title": "Sylhet Tour",
         "img": "https://i.ibb.co/mc1JHfG/sylet.jpg",
         "price": "200.00",
@@ -36,6 +39,7 @@
         ]
     },
     {
+        "service_id": "07",
         "title": "Cox's Bazar Beach",
         "img": "https://i.ibb.co/mbC5029/coxbazar.jpg",
         "price": "150.00",
@@ -48,6 +52,7 @@
         ]
     },
     {
+        "service_id": "08",
         "title": "Taj Mahal tour",
         "img": "https://i.ibb.co/B2tdbpQ/download.jpg",
         "price": "30.00",
@@ -60,6 +65,7 @@
         ]
     },
     {
+        "service_id": "09",
         "title": "Kuakata",
         "img": "https://i.ibb.co/WxXm3V2/kuakata.jpg",
         "price": "20.00",
@@ -72,6 +78,7 @@
         ]
     },
     {
+        "service_id": "10",
         "title": "DARJEELING  TOUR",
         "img": "https://i.ibb.co/QQPkRMh/derjeeling.jpg",
         "price": "20.00",
@@ -84,6 +91,7 @@
         ]
     },
     {
+        "service_id": "11",
         "title": "GANGTOK TOUR",
         "img": "https://i.ibb.co/TwSLLmj/gangtok.jpg",
         "price": "20.00",
@@ -96,6 +104,7 @@
         ]
     },
     {
+        "service_id": "12",
         "title": "Kasmir Tour",
         "img": "https://i.ibb.co/MnYypzP/kasmir.jpg",
         "price": "20.00",

@@ -4,26 +4,47 @@ import signup from '../../assets/signup/signup.jpg'
 import { FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
 
 
+
+
 import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 
-    const { createUser } = useContext(AuthContext);
-    const handleSignUp = (event) => {
 
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+
+    const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+        // console.log(name, email, password)
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
+                handleUpdateUserProfile(name);
+                alert("SignUp Successfully")
+
             })
+
             .catch(err => console.error(err))
     }
+
+    const handleUpdateUserProfile = (name) => {
+        const profile = {
+            displayName: name
+        }
+
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
+
+
     return (
         <div className="hero w-full my-20 ">
             <div className="hero-content gap-20 grid md:grid-cols-2 lg:grid-cols-2 flex-col lg:flex-row">

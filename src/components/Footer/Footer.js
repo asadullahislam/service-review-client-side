@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaGithub, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -29,7 +29,7 @@ const Footer = () => {
             <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
                 <div className="items-center grid-flow-col">
                     <img src="" alt="" />
-                    <p>ACME Industries Ltd. <br />Providing reliable tech since 1992</p>
+                    <p>Copyright © 2022 - All right reserved by Travel Tours</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
