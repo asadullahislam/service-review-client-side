@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 import logo from '../../assets/login/login.jpg';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
+// import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import app from '../../firebase/firebase.config';
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext);
+    const { login, googleProviderLogin, provider } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -29,6 +32,30 @@ const Login = () => {
             })
             .catch(err => console.error(err));
     }
+
+    // const auth = getAuth(app);
+    // const googleProvider = new GoogleAuthProvider();
+
+    // const handleGoogleSignIn = () => {
+    //     signInWithPopup(auth, googleProvider)
+    //         .then(result => {
+    //             const user = result.user;
+    //             console.log(user);
+    //         })
+    //         .catch(err => console.error(err))
+    // }
+
+    const handleGoogleSignIn = () => {
+        googleProviderLogin(provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(err => console.error(err))
+    }
+
+
     return (
         <div className="hero w-full my-20 ">
             <div className="hero-content gap-20 grid md:grid-cols-2 lg:grid-cols-2 flex-col lg:flex-row">
@@ -60,10 +87,16 @@ const Login = () => {
 
                         </div>
                     </Form>
-                    <p className='text-center pb-20'>New to Tourist <Link className='text-orange-600 font-bold' to='/signup'> Sign Up</Link></p>
+                    <p className='text-center pb-20'>New to Travel Tour <Link className='text-orange-600 font-bold' to='/signup'> Sign Up</Link></p>
+                    <div className='flex gap-8 justify-center  pb-7 '>
+                        <button onClick={handleGoogleSignIn}>  <FaGoogle className='text-3xl' /></button>
+                        <FaGithub className='text-3xl'></FaGithub>
+                        <FaTwitter className='text-3xl'></FaTwitter>
+                    </div>
                 </div>
+
             </div>
-        </div>
+        </div >
     );
 };
 

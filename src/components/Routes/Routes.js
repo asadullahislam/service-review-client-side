@@ -10,6 +10,7 @@ import Review from "../Review/Review";
 
 import Services from "../Services/Services";
 import SignUp from "../SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([

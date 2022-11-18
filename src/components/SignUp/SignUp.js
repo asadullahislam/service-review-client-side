@@ -11,7 +11,9 @@ import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 const SignUp = () => {
 
 
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, providerLogin } = useContext(AuthContext);
+
+
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -41,6 +43,16 @@ const SignUp = () => {
         updateUserProfile(profile)
             .then(() => { })
             .catch(error => console.log(error));
+    }
+
+
+    const handleGoogleSignIn = (provider) => {
+        providerLogin(provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(err => console.error(err))
     }
 
 
@@ -81,11 +93,7 @@ const SignUp = () => {
                         </div>
                     </Form>
                     <p className='text-center pb-20'>Allrady have an account ?  <Link className='text-orange-600 font-bold' to='/login'>Login</Link></p>
-                    <div className='flex gap-8 justify-center  pb-7 '>
-                        <FaGoogle />
-                        <FaGithub></FaGithub>
-                        <FaTwitter></FaTwitter>
-                    </div>
+
                 </div>
 
             </div>
