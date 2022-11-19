@@ -25,6 +25,7 @@ const CheckOut = () => {
 
 
         }
+        // post 
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {

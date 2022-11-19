@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-const ReviewRow = ({ review, handleDelete }) => {
+const ReviewRow = ({ review, handleDelete, handleUpdate, handleInputChange }) => {
+
+
     const { _id, serviceName, messege, service } = review;
 
     const [reviewService, setReviewService] = useState({});
@@ -14,6 +16,7 @@ const ReviewRow = ({ review, handleDelete }) => {
 
 
 
+
     return (
 
 
@@ -22,10 +25,10 @@ const ReviewRow = ({ review, handleDelete }) => {
             <td>{messege}</td>
             <td>
                 <div>
-                    <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs mb-3" />
+                    <input onChange={handleInputChange} type="text" placeholder="Type here" name="messege" className="input input-bordered input-primary w-full max-w-xs mb-3" />
                 </div>
                 <div>
-                    <button className='btn btn-secondary mr-5'>UPDATE</button>
+                    <button onClick={() => handleUpdate(_id)} className='btn btn-secondary mr-5'>UPDATE</button>
                     <button onClick={() => handleDelete(_id)} className='btn btn-primary'>DELETE</button>
 
                 </div>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 
 
@@ -6,6 +7,7 @@ import './Review.css';
 import ReviewRow from './ReviewRow';
 
 const Review = () => {
+    const storedMessege = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
@@ -15,6 +17,7 @@ const Review = () => {
             .then(data => setReviews(data))
     }, [user?.email])
 
+    // delete 
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to cancel this review');
         if (proceed) {
@@ -35,7 +38,38 @@ const Review = () => {
 
     }
 
+    //updated messege
 
+    const [messege, setMessege] = useState({ storedMessege });
+
+
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(messege)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('review updated')
+                }
+            })
+
+
+    }
+    const handleInputChange = (event) => {
+
+        const form = event.target;
+        const messege = form.messege.value;
+        const newMessege = { ...messege };
+        setMessege(newMessege);
+
+
+    }
 
 
 
@@ -69,6 +103,8 @@ const Review = () => {
                                     key={review._id}
                                     review={review}
                                     handleDelete={handleDelete}
+                                    handleUpdate={handleUpdate}
+                                    handleInputChange={handleInputChange}
                                 ></ReviewRow>)
                             }
 

@@ -9,10 +9,12 @@ const Services = () => {
 
     const [services, setServices] = useState([]);
 
+    const [currentServices, setCurrentServices] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setCurrentServices(data))
     }, [])
 
     return (
@@ -22,12 +24,20 @@ const Services = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5">
-                {
+                {/* {
                     services.map(service => <ServiceCard
                         key={service._id}
                         service={service}
                     ></ServiceCard>)
+                } */}
+                {
+                    currentServices.map(service => <ServiceCard
+                        key={service._id}
+                        service={service}
+                    ></ServiceCard>)
                 }
+
+
             </div>
             <div className="text-center  text-orange-700 my-10">
                 <button className="btn px-12 font-bold btn-warning">
