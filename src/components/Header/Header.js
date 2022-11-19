@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 
-import logo from '../../assets/logo/logo.jpg'
+import './Header.css'
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -53,6 +53,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <img className='email-image' src={user?.photoURL} alt="" />
                 {
 
                     user?.email ?

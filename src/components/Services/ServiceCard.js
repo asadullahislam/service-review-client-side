@@ -11,9 +11,15 @@ const ServiceCard = ({ service }) => {
             <figure><img alt='' src={img} /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{title}</h2>
-                <p>{description}</p>
+                <p>
+                    {
+                        description.length > 200 ?
+                            <>{description.slice(0, 200) + '...'} <Link to={`/checkout/${_id}`}> SEE MORE</Link></>
+                            :
+                            description
+                    }
+                </p>
                 <p className='text-2xl text-orange-600 font-semibold '>Price:${price}</p>
-
 
                 <div className="card-actions justify-center">
                     <Link to={`/checkout/${_id}`} > <button className="btn btn-primary ">See Details</button></Link>

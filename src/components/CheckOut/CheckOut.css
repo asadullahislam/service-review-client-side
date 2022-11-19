@@ -14,3 +14,9 @@
     height: 40px;
     width: 100px;
 }
+
+.email-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}

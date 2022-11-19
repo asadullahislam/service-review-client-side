@@ -67,9 +67,17 @@ const CheckOut = () => {
                     <div className="form-control">
                         <label className="label">
                             <h1 className='font-bold '> Email:  {user?.email}</h1>
-
                         </label>
+                        <label className="label">
+                            <h1 className='font-bold text-xl'>Name:    {user?.displayName
+                            }</h1>
+                        </label>
+                        <label className="label">
+                            <img className='email-image' src={user?.photoURL} alt="" />
+                        </label>
+
                         <label className="input-group">
+
 
                             <input type="text" placeholder="Please Write Your Review" name='messege' className="input input-bordered text-review" required />
                             <label>
