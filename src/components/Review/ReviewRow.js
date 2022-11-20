@@ -25,10 +25,10 @@ const ReviewRow = ({ review, handleDelete, handleUpdate, handleInputChange }) =>
             <td>{messege}</td>
             <td>
                 <div>
-                    <input onChange={handleInputChange} type="text" placeholder="Type here" name="messege" className="input input-bordered input-primary w-full max-w-xs mb-3" />
+                    <input onChange={handleInputChange} type="text" placeholder="Type here" name="messege" className="input input-bordered input-primary w-full max-w-xs mb-3" id={'update' + _id} />
                 </div>
                 <div>
-                    <button onClick={() => handleUpdate(_id)} className='btn btn-secondary mr-5'>UPDATE</button>
+                    <button onClick={(event) => handleUpdate(event, _id)} className='btn btn-secondary mr-5'>UPDATE</button>
                     <button onClick={() => handleDelete(_id)} className='btn btn-primary'>DELETE</button>
 
                 </div>

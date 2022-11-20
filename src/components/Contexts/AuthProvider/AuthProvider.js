@@ -33,7 +33,6 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
-        localStorage.removeItem('review-item');
         return signOut(auth)
     }
 

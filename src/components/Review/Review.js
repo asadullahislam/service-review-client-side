@@ -43,18 +43,22 @@ const Review = () => {
     const [messege, setMessege] = useState({ storedMessege });
 
 
-    const handleUpdate = (event) => {
+    const handleUpdate = (event, id) => {
         event.preventDefault();
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        const reviews = {
+            messege: document.getElementById('update' + id).value
+        }
+        fetch(`http://localhost:5000/reviews/${id}?email=${user?.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(messege)
+            body: JSON.stringify(reviews)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    window.location.reload()
                     alert('review updated')
                 }
             })
@@ -62,12 +66,10 @@ const Review = () => {
 
     }
     const handleInputChange = (event) => {
-
         const form = event.target;
         const messege = form.messege.value;
         const newMessege = { ...messege };
         setMessege(newMessege);
-
 
     }
 

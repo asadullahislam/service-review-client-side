@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 
 
@@ -10,12 +11,13 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     const [currentServices, setCurrentServices] = useState([]);
-
+    const navigate = useNavigate()
+    const { limit } = useParams()
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/services?limit=' + limit)
             .then(res => res.json())
             .then(data => setCurrentServices(data))
-    }, [])
+    }, [limit])
 
     return (
         <div>
@@ -39,11 +41,14 @@ const Services = () => {
 
 
             </div>
-            <div className="text-center  text-orange-700 my-10">
-                <button className="btn px-12 font-bold btn-warning">
-                    SEE MORE
-                </button>
-            </div>
+            {
+                limit === 'all' ||
+                <div className="text-center  text-orange-700 my-10">
+                    <button className="btn px-12 font-bold btn-warning" onClick={() => navigate('/services/all')}>
+                        SEE MORE
+                    </button>
+                </div>
+            }
         </div>
     );
 };

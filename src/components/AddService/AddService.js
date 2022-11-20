@@ -16,35 +16,31 @@ const AddService = () => {
         const price = form.price.value;
         const email = user?.email || 'not registered'
         console.log(name, description, price);
-        alert("Service Added Succesfully");
 
 
-        //     const addservice = {
-
-        //         service: _id,
-        //         serviceName: title,
-        //         price,
-        //         description,
-        //         email,
-        //     }
+        const addservice = {
+            serviceName: name,
+            price,
+            description,
+            email,
+        }
 
 
-        //     fetch('http://localhost:5000/addservice', {
-        //         method: 'POST',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify()
-        //     })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             console.log(data);
-        //             if (data.acknowledged) {
-        //                 alert('review send Successfully');
-        //                 Form.reset(addservice);
-        //             }
-        //         })
-        //         .catch(err => console.error(err));
+        fetch('http://localhost:5000/addservice', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addservice)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('review send Successfully');
+                    Form.reset(addservice);
+                }
+            })
+            .catch(err => console.error(err));
 
     }
 
