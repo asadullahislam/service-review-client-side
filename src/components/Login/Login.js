@@ -33,17 +33,7 @@ const Login = () => {
             .catch(err => console.error(err));
     }
 
-    // const auth = getAuth(app);
-    // const googleProvider = new GoogleAuthProvider();
 
-    // const handleGoogleSignIn = () => {
-    //     signInWithPopup(auth, googleProvider)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user);
-    //         })
-    //         .catch(err => console.error(err))
-    // }
 
     const handleGoogleSignIn = () => {
         googleProviderLogin(provider)

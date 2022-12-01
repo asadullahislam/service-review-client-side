@@ -26,7 +26,7 @@ const AddService = () => {
         }
 
 
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://service-review-server-side-kappa.vercel.app/addservice', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

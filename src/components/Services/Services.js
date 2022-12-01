@@ -14,7 +14,7 @@ const Services = () => {
     const navigate = useNavigate()
     const { limit } = useParams()
     useEffect(() => {
-        fetch('http://localhost:5000/services?limit=' + limit)
+        fetch('https://service-review-server-side-kappa.vercel.app/services?limit=' + limit)
             .then(res => res.json())
             .then(data => setCurrentServices(data))
     }, [limit])
